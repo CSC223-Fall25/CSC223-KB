@@ -44,7 +44,7 @@ public class TicTacToe {
         boolean validMove = false;
         
         while (!validMove) {
-            System.out.println("Player " + currentPlayer + ", enter move (e.g., A1, C2): ");
+            System.out.println("Player " + currentPlayer + ", enter move (e.g A1): ");
             String move = scanner.next().toUpperCase();
             
             if (move.length() == 2 && move.charAt(0) >= 'A' && move.charAt(0) <= 'C' && move.charAt(1) >= '1' && move.charAt(1) <= '3') {
@@ -54,10 +54,10 @@ public class TicTacToe {
                 if (board[row][col] == ' ') {
                     validMove = true;
                 } else {
-                    System.out.println("Spot already taken. Try again.");
+                    System.out.println("Spot taken. Try again.");
                 }
             } else {
-                System.out.println("Invalid input. Use A1, B2, etc.");
+                System.out.println("Invalid. Use this format A1.");
             }
         }
         board[row][col] = currentPlayer;
