@@ -1,3 +1,4 @@
+
 public class ArrayQueue {
     
     private int[] queue;
