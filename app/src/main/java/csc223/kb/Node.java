@@ -1,0 +1,19 @@
+package csc223.kb;
+
+
+public class Node {
+    char data;
+    Node next;
+    Node prev;
+
+    public Node(char data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+
+    
+
+
