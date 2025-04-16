@@ -30,6 +30,7 @@ public class PathExist {
 
         // Try all possible neighbors
         for (int i = 0; i < graph.length; i++) {
+            
             // Check if there's a connection and the neighbor hasn't been visited
             if (graph[current][i] && !visited[i]) {
 
@@ -41,7 +42,6 @@ public class PathExist {
             }
         }
 
-        // If no path was found, return false
         return false;
     }
 }
