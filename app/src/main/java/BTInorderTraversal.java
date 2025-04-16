@@ -1,37 +1,43 @@
+import java.util.*;
+class TreeNode {
+     int val;
+     TreeNode left;
+     TreeNode right;
+     TreeNode() {}
+     TreeNode(int val) { this.val = val; }
+     TreeNode(int val, TreeNode left, TreeNode right) {
+         this.val = val;
+         this.left = left;
+         this.right = right;
+     }
+ }
 
- // This method should return a list of integers from the inorder traversal
- public class BTInorderTraversal {
-    public List<Integer> inorderTracersal(TreeNode root) {
+public class BTInorderTraversal {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        doInorder(root, result);
+
+        // stack will help us go through the tree without using recursion
+        Stack<TreeNode> stack = new Stack<>();
+
+        TreeNode current = root;
+
+        // We keep going as long as there is a node to visit
+        while (current != null || !stack.isEmpty()) {
+
+            // Go all the way to the left child, pushing nodes along the way
+            while (current != null) {
+                stack.push(current);  
+                current = current.left; 
+            }
+
+            // Now we visit the node at the top of the stack
+            current = stack.pop();  
+            result.add(current.val);  
+
+            // Now we move to the right child of the node
+            current = current.right;
+        }
+
         return result;
     }
-
-    //This method does the actual inorder traversal using recursion
-    public void doInorder(TreeNode node, List<Integer> result) {
-        if(node == null) {
-            return;
-        }
-        doInorder(node.left, result);// Should traverse the left subtree
-        result.add(node.value);// Visits the current node
-        doInorder(node.right, result);// Should traverse the right subtree
-    }
-}
-
-// Could potentially use this to define binary tree node
-int value;
-TreeNode left;
-TreeNode right;
-
-TreeNode() {
-}
-
-TreeNode(int value) {
-    this.value = value;
-}
-
-TreeNode(int value, TreeNode left, TreeNode right) {
-    this.value = value;
-    this.left = left;
-    this.right = right;
 }
